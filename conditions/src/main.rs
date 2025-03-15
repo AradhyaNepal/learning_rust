@@ -1,7 +1,9 @@
 use std::io;
 
 fn main() {
-loop{
+let value='outer:loop{
+  let c=loop{
+
     println!("Enter an number");
    let mut input_value=String::new();
    io::stdin().read_line(&mut input_value).expect("Cannot get input");
@@ -17,10 +19,17 @@ loop{
   println!("Do you want to try again. Y for yes");
   let mut input_value=String::new();
   io::stdin().read_line(&mut input_value).expect("Cannot read");
-  let user_input:bool=if input_value.trim()=="Y" {true}else {false};
- if user_input==false{
-  break;
+  let replay:bool=if input_value.trim()=="Y" {true}else {false};
+ if replay==false{
+  break 'outer "Breaking inner the loop";
   }
-}
+};
+ println!("{c}");
+break "THe outer break"
+
+
+};
+
+println!("{value}");
 
 }

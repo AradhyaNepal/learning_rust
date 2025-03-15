@@ -14,6 +14,13 @@ loop{
 }else{
   println!("{input_value} is zero");
  }
+  println!("Do you want to try again. Y for yes");
+  let mut input_value=String::new();
+  io::stdin().read_line(&mut input_value).expect("Cannot read");
+  let user_input:bool=if input_value.trim()=="Y" {true}else {false};
+ if user_input==false{
+  break;
+  }
 }
 
 }
